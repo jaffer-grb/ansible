@@ -1,0 +1,11 @@
+---
+- name: Create Files Playbook
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Create files
+      file:
+        path: "/root/jaffer{{ item }}.txt"
+        state: touch
+      with_sequence: start=1 end=3
+
